@@ -1,14 +1,15 @@
 package com.owoez.javaai.prompt;
 
+import com.owoez.javaai.model.Itinerary;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Map;
+
 @RestController
-@RequestMapping("/prompt")
 public class ArticleController {
   private final ChatClient chatClient;
 
@@ -50,4 +51,16 @@ public class ArticleController {
         .system(system)
         .call().content();
   }
+
+  @GetMapping("/vacation/structured")
+  public Itinerary structured(@RequestParam(value = "country", defaultValue = "Nigeria") String country,
+                        @RequestParam(value = "count", defaultValue = "5") String count) {
+    return chatClient.prompt()
+        .user(u -> {
+          u.text("I want to travel to {country}, give me a list of {count} things to do");
+          u.params(Map.of("country", country, "count", count));
+        })
+        .call().entity(Itinerary.class);
+  }
+
 }

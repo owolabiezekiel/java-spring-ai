@@ -36,7 +36,7 @@ public class DataLoader implements CommandLineRunner {
     }
 
     log.info("Loading data from {} into the vector store...", resource.getFilename());
-    JsonReader reader = new JsonReader(resource, "company", "model");
+    JsonReader reader = new JsonReader(resource);
     pgVectorStore.add(reader.get());
     log.info("Data loading complete.");
   }

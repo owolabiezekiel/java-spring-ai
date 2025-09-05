@@ -23,4 +23,12 @@ public class StateTools {
     log.info("Getting states in the system");
     return stateRepository.findAll().stream().map(State::toModel).toList();
   }
+
+  @Tool(description = "Create state with name")
+  public StateModel createState(String name){
+    State state = new State();
+    state.setName(name);
+    stateRepository.save(state);
+    return state.toModel();
+  }
 }

@@ -43,6 +43,15 @@ public class ToolController {
         .content();
   }
 
+  @GetMapping("/tools/state/create")
+  public String createState(String message){
+    return chatClient.prompt()
+        .user(message)
+        .tools(stateTools)
+        .call()
+        .content();
+  }
+
 //  @GetMapping("/tools/state/details")
 //  public ResponseModel<List<StateModel>> stateDetailsTools(){
 //    var options = VertexAiGeminiChatOptions.builder()

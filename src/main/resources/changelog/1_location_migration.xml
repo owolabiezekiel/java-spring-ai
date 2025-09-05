@@ -1,0 +1,297 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet author="tobiowolabi" id="state_migration">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="states"/>
+            </not>
+        </preConditions>
+        <createTable tableName="states">
+            <column name="id" type="${uuid_type}" defaultValueComputed="${uuid_function}">
+                <constraints nullable="false" primaryKey="true" unique="true"/>
+            </column>
+
+            <column name="name" type="VARCHAR(50)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+
+            <column name="created_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="created_by" type="VARCHAR(100)"/>
+            <column name="updated_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="updated_by" type="VARCHAR(100)"/>
+            <column name="is_deleted" type="BOOLEAN" defaultValue="false">
+                <constraints nullable="false"/>
+            </column>
+
+        </createTable>
+    </changeSet>
+
+
+    <changeSet author="tobiowolabi" id="create_default_states" context="state-insertion">
+        <insert tableName="states">
+            <column name="name" value="Abia"/>
+            <column name="created_at" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="created_by" value="system"/>
+            <column name="updated_by" value="system"/>
+            <column name="updated_at" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="states">
+            <column name="name" value="Adamawa"/>
+            <column name="created_at" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="created_by" value="system"/>
+            <column name="updated_by" value="system"/>
+            <column name="updated_at" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="states">
+            <column name="name" value="Akwa-Ibom"/>
+            <column name="created_at" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="created_by" value="system"/>
+            <column name="updated_by" value="system"/>
+            <column name="updated_at" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="states">
+            <column name="name" value="Anambra"/>
+            <column name="created_at" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="created_by" value="system"/>
+            <column name="updated_by" value="system"/>
+            <column name="updated_at" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="states">
+            <column name="name" value="Bauchi"/>
+            <column name="created_at" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="created_by" value="system"/>
+            <column name="updated_by" value="system"/>
+            <column name="updated_at" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="states">
+            <column name="name" value="Bayelsa"/>
+            <column name="created_at" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="created_by" value="system"/>
+            <column name="updated_by" value="system"/>
+            <column name="updated_at" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="states">
+            <column name="name" value="Benue"/>
+            <column name="created_at" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="created_by" value="system"/>
+            <column name="updated_by" value="system"/>
+            <column name="updated_at" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="states">
+            <column name="name" value="Borno"/>
+            <column name="created_at" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="created_by" value="system"/>
+            <column name="updated_by" value="system"/>
+            <column name="updated_at" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="states">
+            <column name="name" value="Cross-River"/>
+            <column name="created_at" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="created_by" value="system"/>
+            <column name="updated_by" value="system"/>
+            <column name="updated_at" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="states">
+            <column name="name" value="Delta"/>
+            <column name="created_at" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="created_by" value="system"/>
+            <column name="updated_by" value="system"/>
+            <column name="updated_at" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="states">
+            <column name="name" value="Ebonyi"/>
+            <column name="created_at" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="created_by" value="system"/>
+            <column name="updated_by" value="system"/>
+            <column name="updated_at" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="states">
+            <column name="name" value="Edo"/>
+            <column name="created_at" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="created_by" value="system"/>
+            <column name="updated_by" value="system"/>
+            <column name="updated_at" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="states">
+            <column name="name" value="Ekiti"/>
+            <column name="created_at" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="created_by" value="system"/>
+            <column name="updated_by" value="system"/>
+            <column name="updated_at" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="states">
+            <column name="name" value="Enugu"/>
+            <column name="created_at" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="created_by" value="system"/>
+            <column name="updated_by" value="system"/>
+            <column name="updated_at" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="states">
+            <column name="name" value="Gombe"/>
+            <column name="created_at" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="created_by" value="system"/>
+            <column name="updated_by" value="system"/>
+            <column name="updated_at" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="states">
+            <column name="name" value="Imo"/>
+            <column name="created_at" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="created_by" value="system"/>
+            <column name="updated_by" value="system"/>
+            <column name="updated_at" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="states">
+            <column name="name" value="Jigawa"/>
+            <column name="created_at" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="created_by" value="system"/>
+            <column name="updated_by" value="system"/>
+            <column name="updated_at" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="states">
+            <column name="name" value="Kaduna"/>
+            <column name="created_at" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="created_by" value="system"/>
+            <column name="updated_by" value="system"/>
+            <column name="updated_at" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="states">
+            <column name="name" value="Katsina"/>
+            <column name="created_at" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="created_by" value="system"/>
+            <column name="updated_by" value="system"/>
+            <column name="updated_at" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="states">
+            <column name="name" value="Kano"/>
+            <column name="created_at" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="created_by" value="system"/>
+            <column name="updated_by" value="system"/>
+            <column name="updated_at" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="states">
+            <column name="name" value="Kebbi"/>
+            <column name="created_at" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="created_by" value="system"/>
+            <column name="updated_by" value="system"/>
+            <column name="updated_at" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="states">
+            <column name="name" value="Kogi"/>
+            <column name="created_at" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="created_by" value="system"/>
+            <column name="updated_by" value="system"/>
+            <column name="updated_at" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="states">
+            <column name="name" value="Kwara"/>
+            <column name="created_at" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="created_by" value="system"/>
+            <column name="updated_by" value="system"/>
+            <column name="updated_at" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="states">
+            <column name="name" value="Lagos"/>
+            <column name="created_at" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="created_by" value="system"/>
+            <column name="updated_by" value="system"/>
+            <column name="updated_at" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="states">
+            <column name="name" value="Niger"/>
+            <column name="created_at" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="created_by" value="system"/>
+            <column name="updated_by" value="system"/>
+            <column name="updated_at" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="states">
+            <column name="name" value="Ogun"/>
+            <column name="created_at" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="created_by" value="system"/>
+            <column name="updated_by" value="system"/>
+            <column name="updated_at" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="states">
+            <column name="name" value="Ondo"/>
+            <column name="created_at" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="created_by" value="system"/>
+            <column name="updated_by" value="system"/>
+            <column name="updated_at" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="states">
+            <column name="name" value="Osun"/>
+            <column name="created_at" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="created_by" value="system"/>
+            <column name="updated_by" value="system"/>
+            <column name="updated_at" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="states">
+            <column name="name" value="Oyo"/>
+            <column name="created_at" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="created_by" value="system"/>
+            <column name="updated_by" value="system"/>
+            <column name="updated_at" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="states">
+            <column name="name" value="Plataeu"/>
+            <column name="created_at" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="created_by" value="system"/>
+            <column name="updated_by" value="system"/>
+            <column name="updated_at" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="states">
+            <column name="name" value="Rivers"/>
+            <column name="created_at" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="created_by" value="system"/>
+            <column name="updated_by" value="system"/>
+            <column name="updated_at" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="states">
+            <column name="name" value="Sokoto"/>
+            <column name="created_at" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="created_by" value="system"/>
+            <column name="updated_by" value="system"/>
+            <column name="updated_at" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="states">
+            <column name="name" value="Taraba"/>
+            <column name="created_at" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="created_by" value="system"/>
+            <column name="updated_by" value="system"/>
+            <column name="updated_at" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="states">
+            <column name="name" value="Yobe"/>
+            <column name="created_at" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="created_by" value="system"/>
+            <column name="updated_by" value="system"/>
+            <column name="updated_at" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="states">
+            <column name="name" value="Zamfara"/>
+            <column name="created_at" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="created_by" value="system"/>
+            <column name="updated_by" value="system"/>
+            <column name="updated_at" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="states">
+            <column name="name" value="FCT"/>
+            <column name="created_at" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="created_by" value="system"/>
+            <column name="updated_by" value="system"/>
+            <column name="updated_at" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+    </changeSet>
+
+<!--    <changeSet id="remove_unique_constraint_on_state_name" author="your_name">-->
+<!--        <dropUniqueConstraint-->
+<!--                tableName="states"-->
+<!--                uniqueColumns="name"-->
+<!--                constraintName="states_name_key"-->
+<!--        />-->
+<!--    </changeSet>-->
+
+</databaseChangeLog>

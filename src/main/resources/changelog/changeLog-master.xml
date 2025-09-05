@@ -1,0 +1,28 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <property dbms="h2" name="blob" value="VARBINARY"/>
+    <property dbms="postgresql" name="blob" value="BYTEA"/>
+    <property dbms="mysql" name="blob" value="VARBINARY"/>
+
+    <property dbms="h2" name="boolean" value="BOOLEAN"/>
+    <property dbms="postgresql,mysql" name="boolean" value="BOOLEAN"/>
+
+    <property dbms="h2" name="text" value="VARCHAR(255)"/>
+    <property dbms="postgresql,mysql" name="text" value="TEXT"/>
+
+    <property name="uuid_type" value="TEXT" dbms="postgresql"/>
+    <property name="uuid_type" value="TEXT" dbms="h2"/>
+
+    <property name="uuid_function" value="gen_random_uuid()" dbms="postgresql"/>
+    <property name="uuid_function" value="RANDOM_UUID()" dbms="h2"/>
+
+    <property dbms="h2" name="text" value="VARCHAR(255)"/>
+    <property dbms="h2,postgresql,mysql" name="ulid" value="VARCHAR(26)"/>
+
+    <include file="/changelog/1_location_migration.xml"/>
+
+</databaseChangeLog>
